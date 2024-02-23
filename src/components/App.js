@@ -51,15 +51,24 @@ const App = () => {
         )}
         <h2>context reducer hook</h2>
         {obj.currentUser != null && <Component />}
+        <h3>
+          Current user: {obj.currentUser}, isAuthenticated:
+          {obj.isAuth ? "Yes" : "No"}
+        </h3>
       </UserContext.Provider>
 
       <form onSubmit={(e) => e.preventDefault()}>
         <span>
-          <button onClick={onLogin}>Login</button>
-          <button onClick={onSignout}>Signout</button>
+          <button onClick={onLogin} id="login-btn">
+            Login
+          </button>
+          <button onClick={onSignout} id="signout">
+            Signout
+          </button>
         </span>
         <div>
           <input
+            id="shopping-input"
             type="text"
             onChange={(e) => {
               setCurrentUser({ ...currentUser, user: e.target.value });
